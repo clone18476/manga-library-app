@@ -1,0 +1,22 @@
+<h1>Manga Library Database</h1>
+<br>
+<h2><%= @comic.title %> #<%= @comic.issue %></h2>
+<h6>Added by <%= @comic.user.username %> @ <%= @comic.created_at.to_s %></h6><br><br>
+<p>Publisher: <b><%= @comic.publisher %></b></p>
+<p>Story Arc: <b><%= @comic.arc %></b></p>
+<p>Writer(s): <b><%= @comic.writer %></b></p>
+<p>Artist(s): <b><%= @comic.artist %></b></p>
+<p>Rating: <b><%= @comic.rating %></b></p>
+<p>Review:<br><%= @comic.review %></p><br>
+
+<% if current_user.id == @comic.user_id %>
+<a href="/comics/<%= @comic.id %>/edit"><h5>Edit Comic</h5></a>
+
+<form action="/comics/<%= @comic.id %>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" id="delete" value="Delete">
+</form>
+<br>
+<% end %>
+
+<a href="/users/<%= @user.id %>"><h3>Return To Your Library</h3></a>

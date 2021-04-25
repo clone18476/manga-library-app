@@ -1,0 +1,13 @@
+<h1>Manga Library Database</h1>
+<br>
+<% if flash.has?(:message) %>
+    <%= flash[:message] %>
+<% end %>
+<br>
+<form action="/login" method="POST">
+    <label for="email">Email:</label>
+    <input type="text" name="email"><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"><br><br>
+    <input type="submit" id="submit" name="submit" value="Login">
+</form>
