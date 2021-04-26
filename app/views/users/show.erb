@@ -1,11 +1,11 @@
 <h1>Manga Library Database</h1>
 <br>
 <h2><%= @user.username %>'s Library</h2><br>
-<a href="/comics/new">Add A Manga</a><br><br>
+<a href="/mangas/new">Add A Manga</a><br><br>
 
 <h3>Your Manga Library</h3>
-<% @user.comics.each do |comic| %>
-    <a href="/comics/<%= comic.id %>"><%= comic.title %> #<%= comic.issue %></a> -  Added on: <%= comic.created_at.to_s %><br>
+<% @user.mangas.each do |manga| %>
+    <a href="/mangas/<%= manga.id %>"><%= manga.title %> #<%= manga.issue %></a> -  Added on: <%= manga.created_at.to_s %><br>
 <% end %>
 <br>
-<a href="/comics"><h3>Return Home</h3></a>
+<a href="/mangas"><h3>Return Home</h3></a>

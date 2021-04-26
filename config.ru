@@ -7,5 +7,5 @@ end
 
 use Rack::MethodOverride
 use UserController
-use ComicsController
+use MangasController
 run ApplicationController

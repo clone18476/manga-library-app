@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 4) do
 
-  create_table "comics", force: :cascade do |t|
+  create_table "mangas", force: :cascade do |t|
     t.string "title"
     t.integer "issue"
     t.string "arc"

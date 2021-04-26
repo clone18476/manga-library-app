@@ -1,0 +1,55 @@
+<h1>Manga Library Database</h1>
+<br>
+<h4>Add A New Manga</h4>
+<br>
+<% if flash.has?(:message) %>
+    <%= flash[:message] %>
+<% end %>
+<form action="/mangas" method="post">
+    <label for="title">Title:</label>
+    <input type="text" name="title"><br><br>
+    <label for="issue">Issue Number:</label>
+    <input type="number" min="0" name="issue"><br><br>
+    <label for="publisher">Publisher:</label>
+    <select name="publisher">
+        <option value="Shonen Jump">Shonen Jump</option>
+        <option value="CoroCoro">CoroCoro</option>
+        <option value="Big Comic Original">Big Comic Original</option>
+        <option value="Dark Horse">Dark Horse</option>
+        <option value="Grand Jump">Grand Jump</options>
+        <option value="Ribon">Ribon</options>
+        <option value="Televi-Kun">Televi-Kun</options>
+        <option value="Kiss">Kiss</options>
+        <option value="Cookie">Cookie</options>
+        <option value="Flowers">Flowers</options>
+        <option value="Other">Other</options>
+    </select>
+    <br><br>
+    <label for="arc">Story Arc:</label>
+    <input type="text" name="arc"><br><br>
+    <label for="writer">Writer(s):</label>
+    <input type="text" name="writer"><br><br>
+    <label for="artist">Artist(s):</label>
+    <input type="text" name="artist"><br><br>
+    <label for="rating">Rating:</label>
+    <select name="rating">
+        <option value="10">10 - Masterpiece</option>
+        <option value="9">9 - Astounding</option>
+        <option value="8">8 - Great</option>
+        <option value="7">7 - Very Good</option>
+        <option value="6">6 - Pretty Good</option>
+        <option value="5">5 - Okay/No Opinion</option>
+        <option value="4">4 - Not Great</option>
+        <option value="3">3 - Bad</option>
+        <option value="2">2 - Terrible</option>
+        <option value="1">1 - Just Awful</option>
+        <option value="0">0 - Abbhorent</option>
+    </select>
+    <br><br>
+    <label for="review">Review/Summary:</label><br>
+    <textarea name="review">Enter text here...</textarea><br><br>
+    <input type="submit" name="submit" value="Create Manga">
+</form><br>
+<br>
+<a href="/users/<%= @user.id %>"><h3>Return Home</h3></a>
+    

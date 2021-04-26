@@ -6,7 +6,7 @@ class UserController < ApplicationController
 
     get '/login' do
         if logged_in?
-            redirect to "/comics"
+            redirect to "/mangas"
         else
             erb :"users/login"
         end
@@ -16,7 +16,7 @@ class UserController < ApplicationController
         @user = User.find_by(email: params[:email])
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
-            redirect to "/comics"
+            redirect to "/mangas"
         else
             flash[:message] = "Sorry! Something went wrong. Re-enter your details." 
             redirect to "/login"
@@ -25,7 +25,7 @@ class UserController < ApplicationController
 
     get '/signup' do
         if logged_in?
-            redirect to "/comics"
+            redirect to "/mangas"
         else     
             erb :"users/signup"
         end
@@ -35,7 +35,7 @@ class UserController < ApplicationController
         @user = User.create(username: params[:username], email: params[:email], password: params[:password])
         if @user.save
             session[:user_id] = @user.id
-            redirect to "/comics"
+            redirect to "/mangas"
         else
             flash[:message] = "Whoops! Something went wrong. Re-enter your details."
             redirect to "/signup" 
@@ -56,7 +56,7 @@ class UserController < ApplicationController
         if logged_in? && current_user == @user
             erb :"users/show"
         else
-            redirect to "/comics"
+            redirect to "/mangas"
         end
     end
 end
